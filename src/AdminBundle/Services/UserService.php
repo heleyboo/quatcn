@@ -59,6 +59,11 @@ class UserService {
         return new Paginator($query);
     }
 
+    public function getAllUser() {
+        $repository = $this->getRepository();
+        return $repository->findAll();
+    }
+
     public function insertBatch() {
         for ($i = 2; $i < 100; $i++) {
             $user = new User();
@@ -74,6 +79,16 @@ class UserService {
             $this->manager->persist($user);
             $this->manager->flush();
         }
+    }
+
+    /**
+     * Get user
+     * @param type $userId
+     * @return type
+     */
+    public function getUser($userId) {
+        $repository = $this->getRepository();
+        return $repository->find($userId);
     }
 
 }

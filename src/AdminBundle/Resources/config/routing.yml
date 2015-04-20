@@ -9,4 +9,7 @@ admin_user_insert_batch:
     path:     /users/insert
     defaults: { _controller: AdminBundle:User:insert }
 
+admin_user_show:
+    path:     /users/show/{userId}
+    defaults: { _controller: AdminBundle:User:show }
 

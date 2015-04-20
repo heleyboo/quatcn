@@ -1,8 +1,63 @@
 {% extends 'AdminBundle::base.html.twig' %}
 
 {% block title %}My cool blog posts{% endblock %}
+{% block style %}
+
+{% endblock %}
 
 {% block body %}
+    
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">User information</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username" class="control-label">Username:</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="firstname" class="control-label">Firstname:</label>
+            <input type="text" class="form-control" id="firstname">
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="control-label">Lastname:</label>
+            <input type="text" class="form-control" id="lastname">
+          </div>
+          <div class="form-group">
+            <label for="email" class="control-label">Firstname:</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="firstname" class="control-label">Firstname:</label>
+            <input type="text" class="form-control" id="firstname">
+          </div>
+          <div class="form-group">
+            <label for="role" class="control-label">Firstname:</label>
+            <select name="role" id="role" class="form-control">
+                <option value="1">Administrator</option>
+                <option value="2">Operator</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
     <div class="row">
         <div class="col-md-12">
             <!-- Advanced Tables -->
@@ -31,7 +86,7 @@
                                             <select name="role" aria-controls="dataTables-example" class="form-control">
                                                 <option value="0">-- Role --</option>
                                                 <option value="1">Administrator</option>
-                                                <option value="2">Author</option>
+                                                <option value="2">Operator</option>
                                             </select>
                                         </label>
                                     </div>
@@ -45,10 +100,10 @@
                                 </div>
                             </form>
                             </div>
-                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="userTable" aria-describedby="dataTables-example_info">
                             <thead>
                                 <tr role="row">
-                                    <th tabindex="0"><input type="checkbox" /></th>
+                                    <th tabindex="0"><input type="checkbox" id="check_all" /></th>
                                     <th tabindex="0">Username</th>
                                     <th tabindex="1">Email</th>
                                     <th tabindex="2">Firstname</th>
@@ -61,18 +116,23 @@
                             <tbody>
                                 {% for user in users %}
                                     <tr class="gradeA even">
-                                        <td><input type="checkbox" name="chkAll[]" /></td>
+                                        <td><input type="checkbox" class="check_box" name="chkAll[]" /></td>
                                         <td class="sorting_1">{{ user.username|e }}</td>
                                         <td class=" ">{{ user.email|e }}</td>
                                         <td class=" ">{{ user.firstname|e }}</td>
                                         <td class="center">{{ user.lastname|e }}</td>
                                         <td class="center">{{ user.active|e }}</td>
                                         <td class="center">{{ user.role|e }}</td>
-                                        <td class="center"><a href="" class="btn btn-primary btn-sm btn-block"><i class="fa fa-arrow-right"></i> View</a></td>
+                                        <td class="center">
+                                            <a  data-id="{{ user.id }}" class="btn btn-primary btn-sm btn-block openUpdateUserForm" id="viewDetail{{user.id}}" data-toggle="modal">
+                                                <i class="fa fa-arrow-right"></i> View
+                                            </a>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
+                            <div id="test">asdasd</div>
                         </div>
                     </div>
 
@@ -110,11 +170,9 @@
     </div>
 {% endblock %}
 {% block scripts %}
-    <script src="{{ asset('bundles/admin/js/dataTables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/admin/js/spin.min.js') }}"></script>
+    <script src="{{ asset('bundles/admin/js/dataTables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('bundles/admin/js/dataTables/dataTables.bootstrap.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('#dataTables-example').dataTable();
-        });
-    </script>
+    <script src="{{ asset('bundles/admin/js/admin/User.js') }}"></script>
+    
 {% endblock %}

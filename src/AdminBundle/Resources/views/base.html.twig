@@ -7,8 +7,9 @@
         <link rel="stylesheet" href="{{ asset('bundles/admin/css/font-awesome.css') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/admin/js/morris/morris-0.4.3.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('bundles/admin/css/custom.css') }}" />
-        <link href="{{ asset('bundles/admin/js/dataTables/dataTables.bootstrap.css') }}" rel="stylesheet" />
+        
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        {% block style %}{% endblock %}
     </head>
     <body>
         <div id="wrapper">
@@ -108,6 +109,7 @@
         <script src="{{ asset('bundles/admin/js/morris/raphael-2.1.0.min.js') }}"></script>
         <script src="{{ asset('bundles/admin/js/morris/morris.js') }}"></script>
         <script src="{{ asset('bundles/admin/js/custom.js') }}"></script>
+        
         {% block scripts %}{% endblock %}
     </body>
 </html>
