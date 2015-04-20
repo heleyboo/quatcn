@@ -1,0 +1,38 @@
+AdminBundle\Entity\Product:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Entity\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '100'
+        model:
+            type: string
+            length: 255
+        description:
+            type: text
+        price:
+            type: decimal
+        slug:
+            type: string
+            length: '255'
+        createdDate:
+            type: datetimetz
+            column: created_date
+        updatedDate:
+            type: datetimetz
+            column: updated_date
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy: products
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,120 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}My cool blog posts{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Advanced Tables -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Danh sách người dùng
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <a href="" class="btn btn-success"><i class="fa fa-plus"></i> Create a new User</a>
+                            <a href="" class="btn btn-danger"><i class="fa fa-dropbox"></i> Delete</a>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="table-responsive">
+                        <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                            <div class="row">
+                                <form method="GET" action="{{ path('admin_user_list')}}">
+                                    
+                                
+                                <div class="col-sm-3 col-md-3">
+                                    <div class="dataTables_length" id="dataTables-example_length">
+                                        <label>
+                                            Role:
+                                            <select name="role" aria-controls="dataTables-example" class="form-control">
+                                                <option value="0">-- Role --</option>
+                                                <option value="1">Administrator</option>
+                                                <option value="2">Author</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-sm-9">
+                                    <div id="dataTables-example_filter" class="dataTables_filter">
+                                        <label>Search: <input type="search" name="keyword" class="form-control" aria-controls="dataTables-example">
+                                        </label>
+                                        <button type="submit" class="btn btn-success right">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                            <thead>
+                                <tr role="row">
+                                    <th tabindex="0"><input type="checkbox" /></th>
+                                    <th tabindex="0">Username</th>
+                                    <th tabindex="1">Email</th>
+                                    <th tabindex="2">Firstname</th>
+                                    <th tabindex="3">Lastname</th>
+                                    <th tabindex="4">Active</th>
+                                    <th tabindex="5">Role</th>
+                                    <th tabindex="5">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for user in users %}
+                                    <tr class="gradeA even">
+                                        <td><input type="checkbox" name="chkAll[]" /></td>
+                                        <td class="sorting_1">{{ user.username|e }}</td>
+                                        <td class=" ">{{ user.email|e }}</td>
+                                        <td class=" ">{{ user.firstname|e }}</td>
+                                        <td class="center">{{ user.lastname|e }}</td>
+                                        <td class="center">{{ user.active|e }}</td>
+                                        <td class="center">{{ user.role|e }}</td>
+                                        <td class="center"><a href="" class="btn btn-primary btn-sm btn-block"><i class="fa fa-arrow-right"></i> View</a></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--End Advanced Tables -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="dataTables_info" id="dataTables-example_info" role="alert" aria-live="polite" aria-relevant="all">
+                Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ (totalRecords < (currentPage * pageSize)) ? totalRecords : (currentPage * pageSize) }} of {{ totalRecords}} entries
+            </div>
+                
+        </div>
+        <div class="col-sm-6">
+            {% if (totalPages >= 5) %}
+            <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                <ul class="pagination">
+                    <li class="paginate_button previous {% if (1==currentPage) %} disabled {% endif %}" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                        <a href="{{ (currentPage == 1) ? '#' : path('admin_user_list',{'page': (currentPage == 1) ? currentPage : currentPage - 1}) }}?{{ queryString }}">Previous</a>
+                    </li>
+                    {% for i in fromPage..toPage %}
+                    <li class="paginate_button {% if i==currentPage %} active {% endif %}" aria-controls="dataTables-example" tabindex="0">
+                        <a href="{{ path('admin_user_list',{'page':i}) }}?{{ queryString }}">{{i}}</a>
+                    </li>
+                    {% endfor %}
+                    <li class="paginate_button {% if (totalPages==currentPage) %} disabled {% endif %}" aria-controls="dataTables-example" tabindex="0">
+                        <a href="{{ (currentPage == totalPages) ? '#' : path('admin_user_list',{'page': (currentPage == totalPages) ? currentPage : currentPage + 1}) }}?{{ queryString }}">Next</a>
+                    </li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ asset('bundles/admin/js/dataTables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/admin/js/dataTables/dataTables.bootstrap.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
+{% endblock %}

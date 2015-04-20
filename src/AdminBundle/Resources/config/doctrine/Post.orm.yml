@@ -1,0 +1,26 @@
+AdminBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: AdminBundle\Entity\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        content:
+            type: text
+        userId:
+            type: integer
+            column: user_id
+        createdDate:
+            type: datetimetz
+            column: created_date
+        updatedDate:
+            type: datetimetz
+            column: updated_date
+    lifecycleCallbacks: {  }
