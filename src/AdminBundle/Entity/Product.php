@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product
  */
-class Product {
-
+class Product
+{
     /**
      * @var integer
      */
@@ -40,6 +40,36 @@ class Product {
     private $slug;
 
     /**
+     * @var string
+     */
+    private $image;
+
+    /**
+     * @var string
+     */
+    private $img1;
+
+    /**
+     * @var string
+     */
+    private $img2;
+
+    /**
+     * @var string
+     */
+    private $img3;
+
+    /**
+     * @var string
+     */
+    private $img4;
+
+    /**
+     * @var string
+     */
+    private $img5;
+
+    /**
      * @var \DateTime
      */
     private $createdDate;
@@ -50,17 +80,18 @@ class Product {
     private $updatedDate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @var \AdminBundle\Entity\Category
      */
-    protected $category;
+    private $category;
+
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -70,7 +101,8 @@ class Product {
      * @param string $name
      * @return Product
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
 
         return $this;
@@ -79,9 +111,10 @@ class Product {
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
@@ -91,7 +124,8 @@ class Product {
      * @param string $model
      * @return Product
      */
-    public function setModel($model) {
+    public function setModel($model)
+    {
         $this->model = $model;
 
         return $this;
@@ -100,9 +134,10 @@ class Product {
     /**
      * Get model
      *
-     * @return string
+     * @return string 
      */
-    public function getModel() {
+    public function getModel()
+    {
         return $this->model;
     }
 
@@ -112,7 +147,8 @@ class Product {
      * @param string $description
      * @return Product
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = $description;
 
         return $this;
@@ -121,9 +157,10 @@ class Product {
     /**
      * Get description
      *
-     * @return string
+     * @return string 
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
@@ -133,7 +170,8 @@ class Product {
      * @param string $price
      * @return Product
      */
-    public function setPrice($price) {
+    public function setPrice($price)
+    {
         $this->price = $price;
 
         return $this;
@@ -142,9 +180,10 @@ class Product {
     /**
      * Get price
      *
-     * @return string
+     * @return string 
      */
-    public function getPrice() {
+    public function getPrice()
+    {
         return $this->price;
     }
 
@@ -154,7 +193,8 @@ class Product {
      * @param string $slug
      * @return Product
      */
-    public function setSlug($slug) {
+    public function setSlug($slug)
+    {
         $this->slug = $slug;
 
         return $this;
@@ -163,10 +203,149 @@ class Product {
     /**
      * Get slug
      *
-     * @return string
+     * @return string 
      */
-    public function getSlug() {
+    public function getSlug()
+    {
         return $this->slug;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Product
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set img1
+     *
+     * @param string $img1
+     * @return Product
+     */
+    public function setImg1($img1)
+    {
+        $this->img1 = $img1;
+
+        return $this;
+    }
+
+    /**
+     * Get img1
+     *
+     * @return string 
+     */
+    public function getImg1()
+    {
+        return $this->img1;
+    }
+
+    /**
+     * Set img2
+     *
+     * @param string $img2
+     * @return Product
+     */
+    public function setImg2($img2)
+    {
+        $this->img2 = $img2;
+
+        return $this;
+    }
+
+    /**
+     * Get img2
+     *
+     * @return string 
+     */
+    public function getImg2()
+    {
+        return $this->img2;
+    }
+
+    /**
+     * Set img3
+     *
+     * @param string $img3
+     * @return Product
+     */
+    public function setImg3($img3)
+    {
+        $this->img3 = $img3;
+
+        return $this;
+    }
+
+    /**
+     * Get img3
+     *
+     * @return string 
+     */
+    public function getImg3()
+    {
+        return $this->img3;
+    }
+
+    /**
+     * Set img4
+     *
+     * @param string $img4
+     * @return Product
+     */
+    public function setImg4($img4)
+    {
+        $this->img4 = $img4;
+
+        return $this;
+    }
+
+    /**
+     * Get img4
+     *
+     * @return string 
+     */
+    public function getImg4()
+    {
+        return $this->img4;
+    }
+
+    /**
+     * Set img5
+     *
+     * @param string $img5
+     * @return Product
+     */
+    public function setImg5($img5)
+    {
+        $this->img5 = $img5;
+
+        return $this;
+    }
+
+    /**
+     * Get img5
+     *
+     * @return string 
+     */
+    public function getImg5()
+    {
+        return $this->img5;
     }
 
     /**
@@ -175,7 +354,8 @@ class Product {
      * @param \DateTime $createdDate
      * @return Product
      */
-    public function setCreatedDate($createdDate) {
+    public function setCreatedDate($createdDate)
+    {
         $this->createdDate = $createdDate;
 
         return $this;
@@ -184,9 +364,10 @@ class Product {
     /**
      * Get createdDate
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
-    public function getCreatedDate() {
+    public function getCreatedDate()
+    {
         return $this->createdDate;
     }
 
@@ -196,7 +377,8 @@ class Product {
      * @param \DateTime $updatedDate
      * @return Product
      */
-    public function setUpdatedDate($updatedDate) {
+    public function setUpdatedDate($updatedDate)
+    {
         $this->updatedDate = $updatedDate;
 
         return $this;
@@ -205,12 +387,12 @@ class Product {
     /**
      * Get updatedDate
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
-    public function getUpdatedDate() {
+    public function getUpdatedDate()
+    {
         return $this->updatedDate;
     }
-
 
     /**
      * Set category

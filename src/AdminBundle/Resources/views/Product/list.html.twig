@@ -1,0 +1,113 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}My cool blog posts{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('bundles/admin/js/dataTables/dataTables.bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/admin/js/dataTables/jquery.dataTables.min.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Product information</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username" class="control-label">Username:</label>
+            <input type="text" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="firstname" class="control-label">Firstname:</label>
+            <input type="text" class="form-control" id="firstname">
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="control-label">Lastname:</label>
+            <input type="text" class="form-control" id="lastname">
+          </div>
+          <div class="form-group">
+            <label for="email" class="control-label">Firstname:</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="form-group">
+            <label for="firstname" class="control-label">Firstname:</label>
+            <input type="text" class="form-control" id="firstname">
+          </div>
+          <div class="form-group">
+            <label for="role" class="control-label">Firstname:</label>
+            <select name="role" id="role" class="form-control">
+                <option value="1">Administrator</option>
+                <option value="2">Operator</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+<div class="row">
+        <div class="col-md-12">
+            <!-- Advanced Tables -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Danh sách người dùng
+                </div>
+                <div class="panel-body">
+                    <a href="#updateUserModal" class="btn btn-success"><i class="fa fa-plus" data-toggle="modal"></i> Create a new Product</a>
+                    <a href="" class="btn btn-danger"><i class="fa fa-dropbox"></i> Delete</a>
+                    <hr />
+                    <!--End Advanced Tables -->
+                    <div class="table-responsive">
+                        
+                    <table class="table table-striped" id="productTable">
+                        <thead>
+                            <tr>
+                                <th>Product name</th>
+                                <th>Model</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product in products %}
+                            <tr>
+                                <td>{{ product.name }}</td>
+                                <td>{{ product.model }}</td>
+                                <td>{{ product.price }}</td>
+                                <td>{{ product.price }}</td>
+                                <td><a class="btn btn-primary btn-block btn-sm">View <i class="fa fa-arrow-right"></i></a></td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ asset('bundles/admin/js/dataTables/jquery.dataTables.min.js') }}"></script>
+    <script>
+    $(document).ready(function() {
+        $('#productTable').dataTable();
+    } );
+
+    </script>
+{% endblock %}

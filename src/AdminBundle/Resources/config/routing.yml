@@ -1,15 +1,34 @@
 admin_homepage:
     path:     /dashboard
     defaults: { _controller: AdminBundle:Home:index }
-    
-admin_user_list:
-    path:     /users/list/{page}
-    defaults: { _controller: AdminBundle:User:index, page:1 }
 admin_user_insert_batch:
     path:     /users/insert
     defaults: { _controller: AdminBundle:User:insert }
-
+admin_user_list:
+    path:     /users/list
+    defaults: { _controller: AdminBundle:User:index }
+admin_user_get:
+    path:     /users/test
+    defaults: { _controller: AdminBundle:User:index }
 admin_user_show:
     path:     /users/show/{userId}
     defaults: { _controller: AdminBundle:User:show }
+    
+admin_product_list:
+    path:     /products
+    defaults: { _controller: AdminBundle:Product\List:index }
 
+admin_product_add:
+    path:     /products/add
+    defaults: { _controller: AdminBundle:Product\Add:index }
+
+admin_category_list:
+    path:     /categories
+    defaults: { _controller: AdminBundle:Category\List:index }
+    
+site_home:
+    path:     /
+    defaults: { _controller: AdminBundle:Site\Home:index }
+site_page:
+    path:     /{pageSlug}
+    defaults: { _controller: AdminBundle:Site\Home:index }

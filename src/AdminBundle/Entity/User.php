@@ -22,16 +22,6 @@ class User
     /**
      * @var string
      */
-    private $password;
-
-    /**
-     * @var string
-     */
-    private $email;
-
-    /**
-     * @var string
-     */
     private $firstname;
 
     /**
@@ -40,9 +30,14 @@ class User
     private $lastname;
 
     /**
-     * @var integer
+     * @var string
      */
-    private $active;
+    private $password;
+
+    /**
+     * @var string
+     */
+    private $email;
 
     /**
      * @var integer
@@ -94,52 +89,6 @@ class User
     }
 
     /**
-     * Set password
-     *
-     * @param string $password
-     * @return User
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
      * Set firstname
      *
      * @param string $firstname
@@ -186,26 +135,49 @@ class User
     }
 
     /**
-     * Set active
+     * Set password
      *
-     * @param integer $active
+     * @param string $password
      * @return User
      */
-    public function setActive($active)
+    public function setPassword($password)
     {
-        $this->active = $active;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get active
+     * Get password
      *
-     * @return integer 
+     * @return string 
      */
-    public function getActive()
+    public function getPassword()
     {
-        return $this->active;
+        return $this->password;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 
     /**

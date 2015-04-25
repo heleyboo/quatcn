@@ -1,0 +1,95 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}Thêm mới sản phẩm{% endblock %}
+{% block style %}
+{% endblock %}
+{% block body %}
+
+    <!-- Button trigger modal -->
+
+<div class="row">
+        <div class="col-md-12">
+            <!-- Advanced Tables -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Thêm mới sản phẩm
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        
+                        <div class="col-md-9">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_label(form.name) }}
+                                    {{ form_widget(form.name, {'attr':{'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_label(form.model) }}
+                                    {{ form_widget(form.model, {'attr':{'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_label(form.category) }}
+                                    {{ form_widget(form.category, {'attr':{'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_label(form.image) }}
+                                    {{ form_widget(form.image, {'attr':{'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_label(form.price) }}
+                                    {{ form_widget(form.price, {'attr':{'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    {{ form_label(form.slug) }}
+                                    {{ form_widget(form.slug, {'attr':{'class':'form-control'} }) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            {{ form_widget(form.save, {'attr':{'class':'btn btn-primary btn-block btn-lg'} }) }}
+                            <a href="{{ path('admin_category_list') }}" class="btn btn-success btn-block btn-lg">Thêm danh mục</a>
+                        </div>
+                   
+                     </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="form-group">
+                                {{ form_label(form.description) }}
+                                {{ form_widget(form.description, {'attr':{'class':'ckeditor form-control'} }) }}
+                            </div>
+                        </div>
+                        
+                    </div>
+                   
+                    
+                    {{ form_end(form) }}
+                    
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ asset('bundles/admin/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('bundles/admin/ckeditor/config.js') }}"></script>
+    <script src="{{ asset('bundles/admin/js/dataTables/jquery.dataTables.min.js') }}"></script>
+    <script>
+    $(document).ready(function() {
+        $('#productTable').dataTable();
+    } );
+
+    </script>
+{% endblock %}

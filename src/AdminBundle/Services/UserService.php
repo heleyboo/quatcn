@@ -59,6 +59,37 @@ class UserService {
         return new Paginator($query);
     }
 
+    /**
+     *
+     * @param type $fillter
+     * @return Paginator
+     */
+    public function getListUserByFillter($fillter) {
+        $keyword = $fillter['keyword'];
+        $role = $fillter['role'];
+        $orderField = $fillter['orderField'];
+        $orderBy = $fillter['orderBy'];
+
+        $repository = $this->getRepository();
+        $query = $repository->createQueryBuilder('u')->where('1=1');
+
+        if (!empty($fillter['keyword'])) {
+            $query->andwhere('u.username LIKE :keyword');
+            $query->orWhere('u.firstname LIKE :keyword');
+            $query->orWhere('u.lastname LIKE :keyword');
+            $query->orWhere('u.email LIKE :keyword');
+            $query->setParameter('keyword', '%' . $keyword . '%');
+        }
+        if (empty($role)) {
+            $query->andWhere('u.role > 0');
+        } else {
+            $query->andWhere('u.role = :role');
+            $query->setParameter('role', $role);
+        }
+        $query->orderBy("u.$orderField", "$orderBy");
+        return new Paginator($query);
+    }
+
     public function getAllUser() {
         $repository = $this->getRepository();
         return $repository->findAll();

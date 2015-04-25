@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>{% block title %}Test Application{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('bundles/admin/site/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/admin/site/css/styles.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/admin/css/font-awesome.css') }}" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    {% block style %}{% endblock %}
+</head>
+<body>
+
+    {% include 'AdminBundle::site_navbar.html.twig' %}
+    {% include 'AdminBundle::site_header.html.twig' %}
+
+
+
+    <!-- Begin Body -->
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-3">
+                {% include 'AdminBundle::site_sidebar.html.twig' %}
+            </div>
+            <div class="col col-sm-9">
+                {% block body %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="{{ asset('bundles/admin/site/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/admin/site/js/scripts.js') }}"></script>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,38 +1,104 @@
 AdminBundle\Entity\Product:
     type: entity
-    table: null
-    repositoryClass: AdminBundle\Entity\ProductRepository
+    table: product
+    indexes:
+        IDX_1CF73D3112469DE2:
+            columns:
+                - category_id
     id:
         id:
             type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     fields:
         name:
             type: string
-            length: '100'
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
         model:
             type: string
+            nullable: false
             length: 255
+            fixed: false
+            comment: ''
         description:
             type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
         price:
             type: decimal
+            nullable: false
+            precision: 10
+            scale: 0
+            comment: ''
         slug:
             type: string
-            length: '255'
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        image:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        img1:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        img2:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        img3:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        img4:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        img5:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
         createdDate:
-            type: datetimetz
+            type: datetime
+            nullable: false
+            comment: ''
             column: created_date
         updatedDate:
-            type: datetimetz
+            type: datetime
+            nullable: false
+            comment: ''
             column: updated_date
     manyToOne:
         category:
             targetEntity: Category
-            inversedBy: products
-            joinColumn:
-                name: category_id
-                referencedColumnName: id
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
     lifecycleCallbacks: {  }

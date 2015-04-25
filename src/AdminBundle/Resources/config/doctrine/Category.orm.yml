@@ -1,24 +1,32 @@
 AdminBundle\Entity\Category:
     type: entity
-    table: null
-    repositoryClass: AdminBundle\Entity\CategoryRepository
+    table: category
     id:
         id:
             type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     fields:
         name:
             type: string
-            length: '100'
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
         slug:
             type: string
-            length: '255'
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
         description:
             type: text
-    oneToMany:
-        products:
-            targetEntity: Product
-            mappedBy: category
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
     lifecycleCallbacks: {  }

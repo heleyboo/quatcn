@@ -1,26 +1,42 @@
 AdminBundle\Entity\Post:
     type: entity
-    table: null
-    repositoryClass: AdminBundle\Entity\PostRepository
+    table: post
     id:
         id:
             type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     fields:
         title:
             type: string
+            nullable: false
             length: 255
+            fixed: false
+            comment: ''
         content:
             type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
         userId:
             type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
             column: user_id
         createdDate:
-            type: datetimetz
+            type: datetime
+            nullable: false
+            comment: ''
             column: created_date
         updatedDate:
-            type: datetimetz
+            type: datetime
+            nullable: false
+            comment: ''
             column: updated_date
     lifecycleCallbacks: {  }

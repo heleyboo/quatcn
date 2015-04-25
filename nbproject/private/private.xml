@@ -3,17 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/web/bundles/admin/css/custom.css</file>
             <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Controller/UserController.php</file>
-            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Services/UserService.php</file>
-            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/config/doctrine/User.orm.yml</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Entity/Product.php</file>
             <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/views/User/list.html.twig</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Exception/HttpException.php</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Controller/Product/ListController.php</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Exception/NotFoundHttpException.php</file>
             <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Entity/User.php</file>
-            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/config/doctrine/Product.orm.yml</file>
-            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/views/Product/list.html.twig</file>
             <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/views/base.html.twig</file>
             <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/config/routing.yml</file>
-            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/src/AdminBundle/Resources/config/doctrine/Post.orm.yml</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/web/bundles/admin/js/admin/User.js</file>
+            <file>file:/D:/Workspace/PhpProject/Symfony/QuatCN/web/bundles/admin/js/dataTables/dataTables.bootstrap.js</file>
         </group>
     </open-files>
 </project-private>

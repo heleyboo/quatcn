@@ -1,37 +1,59 @@
 AdminBundle\Entity\User:
     type: entity
-    table: null
-    repositoryClass: AdminBundle\Entity\UserRepository
+    table: user
     id:
         id:
             type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
             id: true
             generator:
-                strategy: AUTO
+                strategy: IDENTITY
     fields:
         username:
             type: string
-            length: '100'
-        password:
-            type: string
-            length: '255'
-        email:
-            type: string
-            length: '100'
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
         firstname:
             type: string
-            length: '64'
+            nullable: false
+            length: 64
+            fixed: false
+            comment: ''
         lastname:
             type: string
-            length: '64'
-        active:
-            type: integer
+            nullable: false
+            length: 64
+            fixed: false
+            comment: ''
+        password:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        email:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
         role:
             type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
         createdDate:
-            type: datetimetz
+            type: datetime
+            nullable: false
+            comment: ''
             column: created_date
         updatedDate:
-            type: datetimetz
+            type: datetime
+            nullable: false
+            comment: ''
             column: updated_date
     lifecycleCallbacks: {  }

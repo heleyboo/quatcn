@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  */
-class User
-{
+class User {
+
     /**
      * @var integer
      */
@@ -30,9 +30,14 @@ class User
     private $email;
 
     /**
-     * @var integer
+     * @var string
      */
-    private $active;
+    private $firstname;
+
+    /**
+     * @var string
+     */
+    private $lastname;
 
     /**
      * @var integer
@@ -49,14 +54,12 @@ class User
      */
     private $updatedDate;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -66,8 +69,7 @@ class User
      * @param string $username
      * @return User
      */
-    public function setUsername($username)
-    {
+    public function setUsername($username) {
         $this->username = $username;
 
         return $this;
@@ -76,10 +78,9 @@ class User
     /**
      * Get username
      *
-     * @return string 
+     * @return string
      */
-    public function getUsername()
-    {
+    public function getUsername() {
         return $this->username;
     }
 
@@ -89,8 +90,7 @@ class User
      * @param string $password
      * @return User
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
 
         return $this;
@@ -99,10 +99,9 @@ class User
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
     }
 
@@ -112,8 +111,7 @@ class User
      * @param string $email
      * @return User
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -122,34 +120,52 @@ class User
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
     /**
-     * Set active
+     * Set firstname
      *
-     * @param integer $active
+     * @param string $firstname
      * @return User
      */
-    public function setActive($active)
-    {
-        $this->active = $active;
+    public function setFirstname($firstname) {
+        $this->firstname = $firstname;
 
         return $this;
     }
 
     /**
-     * Get active
+     * Get firstname
      *
-     * @return integer 
+     * @return string
      */
-    public function getActive()
-    {
-        return $this->active;
+    public function getFirstname() {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     * @return User
+     */
+    public function setLastname($lastname) {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname() {
+        return $this->lastname;
     }
 
     /**
@@ -158,8 +174,7 @@ class User
      * @param integer $role
      * @return User
      */
-    public function setRole($role)
-    {
+    public function setRole($role) {
         $this->role = $role;
 
         return $this;
@@ -168,10 +183,9 @@ class User
     /**
      * Get role
      *
-     * @return integer 
+     * @return integer
      */
-    public function getRole()
-    {
+    public function getRole() {
         return $this->role;
     }
 
@@ -181,8 +195,7 @@ class User
      * @param \DateTime $createdDate
      * @return User
      */
-    public function setCreatedDate($createdDate)
-    {
+    public function setCreatedDate($createdDate) {
         $this->createdDate = $createdDate;
 
         return $this;
@@ -191,10 +204,9 @@ class User
     /**
      * Get createdDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getCreatedDate()
-    {
+    public function getCreatedDate() {
         return $this->createdDate;
     }
 
@@ -204,8 +216,7 @@ class User
      * @param \DateTime $updatedDate
      * @return User
      */
-    public function setUpdatedDate($updatedDate)
-    {
+    public function setUpdatedDate($updatedDate) {
         $this->updatedDate = $updatedDate;
 
         return $this;
@@ -214,10 +225,10 @@ class User
     /**
      * Get updatedDate
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getUpdatedDate()
-    {
+    public function getUpdatedDate() {
         return $this->updatedDate;
     }
+
 }

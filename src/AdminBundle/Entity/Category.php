@@ -3,13 +3,12 @@
 namespace AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Category
  */
-class Category {
-
+class Category
+{
     /**
      * @var integer
      */
@@ -30,21 +29,14 @@ class Category {
      */
     private $description;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
-     */
-    protected $products;
-
-    public function __construct() {
-        $this->products = new ArrayCollection();
-    }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -54,7 +46,8 @@ class Category {
      * @param string $name
      * @return Category
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
 
         return $this;
@@ -63,9 +56,10 @@ class Category {
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
@@ -75,7 +69,8 @@ class Category {
      * @param string $slug
      * @return Category
      */
-    public function setSlug($slug) {
+    public function setSlug($slug)
+    {
         $this->slug = $slug;
 
         return $this;
@@ -84,9 +79,10 @@ class Category {
     /**
      * Get slug
      *
-     * @return string
+     * @return string 
      */
-    public function getSlug() {
+    public function getSlug()
+    {
         return $this->slug;
     }
 
@@ -96,7 +92,8 @@ class Category {
      * @param string $description
      * @return Category
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = $description;
 
         return $this;
@@ -105,43 +102,10 @@ class Category {
     /**
      * Get description
      *
-     * @return string
+     * @return string 
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
-    }
-
-
-    /**
-     * Add products
-     *
-     * @param \AdminBundle\Entity\Product $products
-     * @return Category
-     */
-    public function addProduct(\AdminBundle\Entity\Product $products)
-    {
-        $this->products[] = $products;
-
-        return $this;
-    }
-
-    /**
-     * Remove products
-     *
-     * @param \AdminBundle\Entity\Product $products
-     */
-    public function removeProduct(\AdminBundle\Entity\Product $products)
-    {
-        $this->products->removeElement($products);
-    }
-
-    /**
-     * Get products
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getProducts()
-    {
-        return $this->products;
     }
 }

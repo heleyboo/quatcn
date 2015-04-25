@@ -1,0 +1,70 @@
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}My cool blog posts{% endblock %}
+{% block style %}
+{% endblock %}
+
+{% block body %}
+
+    <!-- Button trigger modal -->
+
+<div class="row">
+    <!-- Advanced Tables -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Danh mục
+        </div>
+        <div class="panel-body">
+            <div class="col-md-6 col-lg-6">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name, {'attr':{'class':'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.slug) }}
+                    {{ form_widget(form.slug, {'attr':{'class':'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description, {'attr':{'class':'form-control'} }) }}
+                </div>
+                {{ form_widget(form.save, {'attr':{'class':'btn btn-primary'}}) }}
+                <a href="{{ path('admin_product_add') }}" class="btn btn-success">Thêm sản phẩm</a>
+                {{ form_end(form) }}
+            </div>
+                
+            <div class="col-md-6 col-lg-6">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th> Tên danh mục </th>
+                            <th> Slug </th>
+                            <th> Mô tả danh mục </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for category in categories %}
+                        <tr>
+                            <td> {{category.name|e}} </td>
+                            <td> {{category.slug|e}} </td>
+                            <td> {{category.description|e}} </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ asset('bundles/admin/js/dataTables/jquery.dataTables.min.js') }}"></script>
+    <script>
+    $(document).ready(function() {
+        $('#productTable').dataTable();
+    } );
+
+    </script>
+{% endblock %}
